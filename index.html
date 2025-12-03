@@ -1211,7 +1211,7 @@
             <div class="blog-preview">
                 <div class="blog-post">
                     <div class="blog-image">
-                        <img src="assets/advent.jpg" alt="Modern Traditional Design">
+                        <img src="assets/adven.jpg" alt="Modern Traditional Design">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1521,6 +1521,278 @@
 
         window.addEventListener('scroll', highlightNavLink);
         window.addEventListener('load', highlightNavLink);
+
+        // ==============================================
+// MOBILE MENU FIXES
+// ==============================================
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Fix mobile menu dropdown functionality
+    fixMobileMenu();
+    
+    // Close mobile menu when clicking outside
+    setupOutsideClickHandler();
+    
+    // Close mobile menu when clicking on a link
+    setupMobileLinkHandlers();
+});
+
+// Main function to fix mobile menu
+function fixMobileMenu() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    
+    if (!mobileMenuBtn || !mobileMenu) {
+        console.error('Mobile menu elements not found');
+        return;
+    }
+    
+    // Open mobile menu
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mobileMenu.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Add aria attributes for accessibility
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    });
+    
+    // Close mobile menu with close button
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    }
+    
+    // Close mobile menu with overlay
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    }
+    
+    // Mobile dropdown toggle functionality
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const dropdown = this.nextElementSibling;
+            const icon = this.querySelector('i');
+            
+            // Toggle active class on dropdown
+            dropdown.classList.toggle('active');
+            
+            // Toggle active class on toggle element
+            this.classList.toggle('active');
+            
+            // Rotate icon
+            if (icon) {
+                icon.style.transform = dropdown.classList.contains('active') 
+                    ? 'rotate(180deg)' 
+                    : 'rotate(0deg)';
+            }
+        });
+        
+        // Prevent parent link navigation when clicking dropdown toggle
+        const link = toggle.querySelector('a');
+        if (link) {
+            link.addEventListener('click', function(e) {
+                // Only prevent default if dropdown is not active (to allow closing)
+                if (!toggle.classList.contains('active')) {
+                    e.preventDefault();
+                }
+            });
+        }
+    });
+    
+    // Handle Escape key to close mobile menu
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+}
+
+// Function to close mobile menu
+function closeMobileMenu() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+    }
+    
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.classList.remove('active');
+    }
+    
+    document.body.style.overflow = '';
+    
+    // Close all dropdowns inside mobile menu
+    const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+    mobileDropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+    });
+    
+    // Reset dropdown toggle icons
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.classList.remove('active');
+        const icon = toggle.querySelector('i');
+        if (icon) {
+            icon.style.transform = 'rotate(0deg)';
+        }
+    });
+    
+    // Update aria attributes for accessibility
+    if (mobileMenu) {
+        mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+    if (mobileMenuBtn) {
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// Close mobile menu when clicking outside
+function setupOutsideClickHandler() {
+    document.addEventListener('click', function(e) {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        
+        if (!mobileMenu || !mobileMenu.classList.contains('active')) return;
+        
+        // Check if click is outside mobile menu and not on the menu button
+        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+            closeMobileMenu();
+        }
+    });
+}
+
+// Close mobile menu when clicking on a link (except dropdown toggles)
+function setupMobileLinkHandlers() {
+    const mobileLinks = document.querySelectorAll('.mobile-nav a:not(.mobile-dropdown-toggle a)');
+    
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Close mobile menu after a short delay for smooth transition
+            setTimeout(() => {
+                closeMobileMenu();
+            }, 300);
+        });
+    });
+}
+
+// ==============================================
+// ENHANCED DROPDOWN BEHAVIOR FOR BOTH DESKTOP & MOBILE
+// ==============================================
+
+// Improve desktop dropdown behavior
+function enhanceDesktopDropdowns() {
+    const dropdownParents = document.querySelectorAll('.dropdown-parent');
+    
+    dropdownParents.forEach(parent => {
+        const dropdown = parent.querySelector('.dropdown');
+        const link = parent.querySelector('a');
+        
+        if (!dropdown || !link) return;
+        
+        // Add hover behavior for desktop
+        parent.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 992) { // Desktop breakpoint
+                dropdown.style.opacity = '1';
+                dropdown.style.visibility = 'visible';
+                dropdown.style.transform = 'translateY(0)';
+            }
+        });
+        
+        parent.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 992) {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(15px)';
+            }
+        });
+        
+        // Add click behavior for touch devices
+        if (window.innerWidth <= 992) {
+            let touchTimer;
+            
+            link.addEventListener('touchstart', function(e) {
+                touchTimer = setTimeout(() => {
+                    e.preventDefault();
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                    dropdown.style.transform = 'translateY(0)';
+                }, 300); // Long press to open dropdown on mobile
+            });
+            
+            link.addEventListener('touchend', function() {
+                clearTimeout(touchTimer);
+            });
+            
+            // Close dropdown when tapping elsewhere
+            document.addEventListener('touchstart', function(e) {
+                if (!parent.contains(e.target)) {
+                    dropdown.style.opacity = '0';
+                    dropdown.style.visibility = 'hidden';
+                    dropdown.style.transform = 'translateY(15px)';
+                }
+            });
+        }
+    });
+}
+
+// Initialize enhanced dropdowns
+document.addEventListener('DOMContentLoaded', enhanceDesktopDropdowns);
+
+// Update dropdown behavior on window resize
+window.addEventListener('resize', enhanceDesktopDropdowns);
+
+// ==============================================
+// SMOOTH SCROLLING FIX FOR MOBILE MENU
+// ==============================================
+
+// Update smooth scrolling to work with mobile menu
+function updateSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || !targetId) return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+            
+            // Close mobile menu if open
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+            
+            // Calculate header height for offset
+            const headerHeight = document.querySelector('header').offsetHeight || 100;
+            
+            // Smooth scroll to target
+            window.scrollTo({
+                top: targetElement.offsetTop - headerHeight,
+                behavior: 'smooth'
+            });
+            
+            e.preventDefault();
+        });
+    });
+}
+
+// Initialize smooth scrolling
+document.addEventListener('DOMContentLoaded', updateSmoothScrolling);
     </script>
 </body>
 </html>
