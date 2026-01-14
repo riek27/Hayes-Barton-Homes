@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Hayes Barton Homes | Luxury Custom Home Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-home logo-icon"></i>
+                    Hayes <span>Barton</span> Homes
+                </a>
+                
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="dropdown-parent">
+                            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="services.html#custom-homes">Custom Homes</a></li>
+                                <li><a href="services.html#home-renovations">Home Renovations</a></li>
+                                <li><a href="services.html#luxury-additions">Luxury Additions</a></li>
+                                <li><a href="services.html#design-consultation">Design Consultation</a></li>
+                                <li><a href="services.html#project-management">Project Management</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="process.html">Process</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-menu-logo">Hayes <span>Barton</span> Homes</a>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="mobile-dropdown-parent">
+                    <div class="mobile-dropdown-toggle">
+                        <a href="services.html">Services</a>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="mobile-dropdown">
+                        <li><a href="services.html#custom-homes">Custom Homes</a></li>
+                        <li><a href="services.html#home-renovations">Home Renovations</a></li>
+                        <li><a href="services.html#luxury-additions">Luxury Additions</a></li>
+                        <li><a href="services.html#design-consultation">Design Consultation</a></li>
+                        <li><a href="services.html#project-management">Project Management</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="process.html">Process</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hayes Barton Homes Blog</h1>
+                <p>Insights on custom home building, design trends, and the Raleigh area</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Articles</h2>
+                <p class="section-subtitle">Expert advice, design inspiration, and industry insights from our team</p>
+            </div>
+
+            <!-- Featured Post -->
+            <div class="blog-post" style="max-width: 900px; margin: 0 auto 4rem;">
+                <div class="blog-image">
+                    <img src="assets/adven.jpg" alt="Modern Traditional Design" data-src="assets/adven.jpg">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> May 15, 2025</span>
+                        <span><i class="far fa-folder"></i> Design Trends</span>
+                        <span><i class="far fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h2>Blending Modern & Traditional Elements in Custom Homes</h2>
+                    <p>Creating a home that feels both timeless and contemporary is one of the most sought-after design approaches in custom home building today. The key lies in balancing classic architectural elements with modern amenities and finishes...</p>
+                    <a href="blog-post-modern-traditional.html" class="btn" style="margin-top: 1rem;">Read Full Article</a>
+                </div>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-preview">
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Raleigh Real Estate" data-src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> April 22, 2025</span>
+                            <span><i class="far fa-folder"></i> Raleigh Area</span>
+                            <span><i class="far fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h3>Why Raleigh is the Perfect Place for Your Custom Home</h3>
+                        <p>Exploring the unique neighborhoods and communities in the Raleigh-Durham area that offer ideal settings for custom homes, from urban infills to suburban estates.</p>
+                        <a href="blog-post-raleigh-perfect.html" style="color: var(--gold); font-weight: 600; text-decoration: none;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Sustainable Building" data-src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> March 18, 2025</span>
+                            <span><i class="far fa-folder"></i> Sustainable Building</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>Sustainable Building Practices for Modern Custom Homes</h3>
+                        <p>How to incorporate energy-efficient systems, sustainable materials, and smart home technology into your custom home without compromising on luxury or design.</p>
+                        <a href="blog-post-sustainable.html" style="color: var(--gold); font-weight: 600; text-decoration: none;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Kitchen Design" data-src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> February 10, 2025</span>
+                            <span><i class="far fa-folder"></i> Kitchen Design</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3>Designing the Perfect Custom Kitchen: Layout, Materials & Features</h3>
+                        <p>A comprehensive guide to creating your dream kitchen, covering everything from workflow-optimized layouts to premium material selections and must-have features.</p>
+                        <a href="blog-post-kitchen-design.html" style="color: var(--gold); font-weight: 600; text-decoration: none;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1503387769-00a112127ca0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Budget Planning" data-src="https://images.unsplash.com/photo-1503387769-00a112127ca0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> January 5, 2025</span>
+                            <span><i class="far fa-folder"></i> Budget Planning</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h3>Budgeting for Your Custom Home: Where to Invest & Where to Save</h3>
+                        <p>Practical advice on allocating your custom home budget effectively, including which areas warrant investment and where you can make cost-effective choices.</p>
+                        <a href="blog-post-budgeting.html" style="color: var(--gold); font-weight: 600; text-decoration: none;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Outdoor Living" data-src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> December 12, 2024</span>
+                            <span><i class="far fa-folder"></i> Outdoor Living</span>
+                            <span><i class="far fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h3>Creating Outdoor Living Spaces That Extend Your Home's Square Footage</h3>
+                        <p>How to design functional and beautiful outdoor spaces that seamlessly connect with your home's interior and provide additional living areas for entertainment and relaxation.</p>
+                        <a href="blog-post-outdoor-living.html" style="color: var(--gold); font-weight: 600; text-decoration: none;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="assets/arinter.jpg" alt="Historical Renovation" data-src="assets/arinter.jpg">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> November 8, 2024</span>
+                            <span><i class="far fa-folder"></i> Historical Renovation</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>Preserving History: Tips for Renovating Historical Homes in Raleigh</h3>
+                        <p>Essential considerations for renovating historical properties in Raleigh's older neighborhoods while maintaining architectural integrity and meeting modern living standards.</p>
+                        <a href="blog-post-historical.html" style="color: var(--gold); font-weight: 600; text-decoration: none;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter Signup -->
+            <div style="margin-top: 5rem; background-color: var(--beige); padding: 3rem; border-radius: 8px; text-align: center;">
+                <h2 style="margin-bottom: 1rem;">Subscribe to Our Newsletter</h2>
+                <p style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Get the latest design inspiration, building tips, and Raleigh real estate insights delivered to your inbox.</p>
+                <form id="newsletterForm" style="max-width: 500px; margin: 0 auto;">
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="email" placeholder="Your email address" style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                        <button type="submit" class="btn">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Hayes Barton Homes</h3>
+                    <p>Hayes Barton Homes is a custom luxury home builder in the Raleigh-Durham-Chapel Hill area with an emphasis on high-end design and personalization.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/hayesbartonhomes" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="process.html">Process</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Blog Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="blog.html">Design Trends</a></li>
+                        <li><a href="blog.html">Sustainable Building</a></li>
+                        <li><a href="blog.html">Kitchen & Bath</a></li>
+                        <li><a href="blog.html">Raleigh Area</a></li>
+                        <li><a href="blog.html">Budget Planning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Raleigh, North Carolina</li>
+                        <li><i class="fas fa-phone"></i> (919) 555-0123</li>
+                        <li><i class="fas fa-envelope"></i> info@hayesbartonhomes.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hayes Barton Homes Inc. | <a href="#" style="color: #bbb;">Privacy Policy</a> | <a href="#" style="color: #bbb;">Terms & Conditions</a> • Website Design by Crestline Web Studio.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Photos courtesy of Unsplash</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Newsletter Form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
