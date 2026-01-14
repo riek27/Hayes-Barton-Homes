@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Hayes Barton Homes | Luxury Custom Home Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-home logo-icon"></i>
+                    Hayes <span>Barton</span> Homes
+                </a>
+                
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="dropdown-parent">
+                            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="services.html#custom-homes">Custom Homes</a></li>
+                                <li><a href="services.html#home-renovations">Home Renovations</a></li>
+                                <li><a href="services.html#luxury-additions">Luxury Additions</a></li>
+                                <li><a href="services.html#design-consultation">Design Consultation</a></li>
+                                <li><a href="services.html#project-management">Project Management</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gallery.html" class="active">Gallery</a></li>
+                        <li><a href="process.html">Process</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-menu-logo">Hayes <span>Barton</span> Homes</a>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="mobile-dropdown-parent">
+                    <div class="mobile-dropdown-toggle">
+                        <a href="services.html">Services</a>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="mobile-dropdown">
+                        <li><a href="services.html#custom-homes">Custom Homes</a></li>
+                        <li><a href="services.html#home-renovations">Home Renovations</a></li>
+                        <li><a href="services.html#luxury-additions">Luxury Additions</a></li>
+                        <li><a href="services.html#design-consultation">Design Consultation</a></li>
+                        <li><a href="services.html#project-management">Project Management</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="process.html">Process</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Portfolio</h1>
+                <p>Explore our recent custom home builds and renovations in the Raleigh area</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Projects</h2>
+                <p class="section-subtitle">Browse our collection of custom homes, renovations, and additions that showcase our commitment to quality craftsmanship and design excellence.</p>
+            </div>
+
+            <!-- Gallery Filter -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="gallery-filter">
+                    <button class="btn filter-btn active" data-filter="all">All Projects</button>
+                    <button class="btn filter-btn" data-filter="custom">Custom Homes</button>
+                    <button class="btn filter-btn" data-filter="renovation">Renovations</button>
+                    <button class="btn filter-btn" data-filter="addition">Additions</button>
+                    <button class="btn filter-btn" data-filter="kitchen">Kitchens</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Custom Homes -->
+                <div class="gallery-item" data-category="custom">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Traditional Home" data-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    <div class="gallery-overlay">
+                        <h4>Modern Traditional Home</h4>
+                        <p>North Raleigh | 4,200 sq ft</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="custom">
+                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Custom Exterior" data-src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    <div class="gallery-overlay">
+                        <h4>Custom Home Exterior</h4>
+                        <p>Cary | 3,800 sq ft</p>
+                    </div>
+                </div>
+                
+                <!-- Renovations -->
+                <div class="gallery-item" data-category="renovation kitchen">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Kitchen" data-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    <div class="gallery-overlay">
+                        <h4>Luxury Kitchen Renovation</h4>
+                        <p>Hayes Barton | Complete Remodel</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="renovation">
+                    <img src="assets/arinter.jpg" alt="Home Renovation" data-src="assets/arinter.jpg">
+                    <div class="gallery-overlay">
+                        <h4>Whole House Renovation</h4>
+                        <p>Oakwood | Historical Preservation</p>
+                    </div>
+                </div>
+                
+                <!-- Additions -->
+                <div class="gallery-item" data-category="addition">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Addition" data-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    <div class="gallery-overlay">
+                        <h4>Second Story Addition</h4>
+                        <p>Five Points | 1,200 sq ft Addition</p>
+                    </div>
+                </div>
+                
+                <!-- Kitchens -->
+                <div class="gallery-item" data-category="kitchen">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Kitchen" data-src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    <div class="gallery-overlay">
+                        <h4>Modern Kitchen Design</h4>
+                        <p>Downtown Raleigh | Custom Cabinetry</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="custom">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Bathroom" data-src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    <div class="gallery-overlay">
+                        <h4>Master Suite & Bathroom</h4>
+                        <p>Wake Forest | Spa-Inspired Design</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="addition">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Outdoor Living" data-src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                    <div class="gallery-overlay">
+                        <h4>Outdoor Living Addition</h4>
+                        <p>Durham | Covered Patio & Kitchen</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Description -->
+            <div style="margin-top: 4rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="margin-bottom: 1.5rem;">Craftsmanship That Stands the Test of Time</h3>
+                <p>Each project in our gallery represents a unique collaboration with homeowners who trusted us to bring their vision to life. From modern traditional homes in North Raleigh to historical renovations in Oakwood, we take pride in creating spaces that are both beautiful and functional.</p>
+                <p>Our attention to detail, from custom millwork to carefully selected finishes, ensures that every home we build or renovate meets our exacting standards and exceeds our clients' expectations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-slider">
+                <div class="testimonial-item active">
+                    <p class="testimonial-text">"Our house is amazing... great use of space, tons of storage and light, beautiful selections and soundly-built! We've been so pleased and get tons of compliments from visitors. Allen is a pleasure... responsive, receptive, reliable and easy to work with. I highly recommend Hayes Barton Homes!"</p>
+                    <p class="testimonial-author">— Raines Kuppin</p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"If asked would we work with Allen again, the answer is an emphatic absolutely yes! This was our fourth build and none of the other experiences came anywhere close to this one. The finished product was superior in every possible way. Allen's integrity and work ethic are unparalleled in this industry."</p>
+                    <p class="testimonial-author">— Matthew Valenzisi</p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"Working with Hayes Barton Homes was a seamless experience from start to finish. Allen's attention to detail and commitment to quality is exceptional. Our custom home exceeded all expectations and has become our forever home."</p>
+                    <p class="testimonial-author">— Sarah Johnson</p>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background-color: var(--charcoal); color: var(--white); text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Inspired By Our Work?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">Let's discuss how we can bring your dream home to life with the same level of craftsmanship and attention to detail.</p>
+            <a href="contact.html" class="btn" style="background-color: var(--gold);">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Hayes Barton Homes</h3>
+                    <p>Hayes Barton Homes is a custom luxury home builder in the Raleigh-Durham-Chapel Hill area with an emphasis on high-end design and personalization.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/hayesbartonhomes" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="process.html">Process</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#custom-homes">Custom Homes</a></li>
+                        <li><a href="services.html#home-renovations">Home Renovations</a></li>
+                        <li><a href="services.html#luxury-additions">Luxury Additions</a></li>
+                        <li><a href="services.html#design-consultation">Design Consultation</a></li>
+                        <li><a href="services.html#project-management">Project Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Raleigh, North Carolina</li>
+                        <li><i class="fas fa-phone"></i> (919) 555-0123</li>
+                        <li><i class="fas fa-envelope"></i> info@hayesbartonhomes.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hayes Barton Homes Inc. | <a href="#" style="color: #bbb;">Privacy Policy</a> | <a href="#" style="color: #bbb;">Terms & Conditions</a> • Website Design by Crestline Web Studio.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Photos courtesy of Unsplash</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Gallery Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category').includes(filterValue)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
