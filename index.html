@@ -8,985 +8,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --charcoal: #2c2c2c;
-            --gold: #bfa06b;
-            --white: #ffffff;
-            --beige: #f5f2ed;
-            --light-gray: #f8f8f8;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            color: var(--charcoal);
-            background-color: var(--white);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        header.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo span {
-            color: var(--gold);
-        }
-
-        .logo-icon {
-            margin-right: 8px;
-            font-size: 1.5rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            position: relative;
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--charcoal);
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        nav ul li a:hover {
-            color: var(--gold);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--gold);
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* Dropdown Menu */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--white);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(15px);
-            transition: var(--transition);
-            border-radius: 0 0 5px 5px;
-            overflow: hidden;
-            z-index: 100;
-        }
-
-        nav ul li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown li {
-            margin: 0;
-            width: 100%;
-        }
-
-        .dropdown li a {
-            display: block;
-            padding: 0.9rem 1.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .dropdown li a:hover {
-            background-color: var(--beige);
-            padding-left: 1.8rem;
-        }
-
-        .dropdown li:last-child a {
-            border-bottom: none;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--charcoal);
-            transition: var(--transition);
-        }
-
-        .mobile-menu-btn:hover {
-            color: var(--gold);
-        }
-
-        /* Hero Section with Background Image */
-        .hero {
-            height: 100vh;
-            min-height: 700px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            overflow: hidden;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--white);
-            padding: 0.9rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-family: 'Lato', sans-serif;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #a88755;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--white);
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Featured in Badge */
-        .featured-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--charcoal);
-            z-index: 10;
-            display: flex;
-            align-items: center;
-        }
-
-        .featured-badge i {
-            color: var(--gold);
-            margin-right: 5px;
-        }
-
-        /* Content Sections */
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .about-image:hover img {
-            transform: scale(1.03);
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Testimonials */
-        .testimonial {
-            background-color: var(--beige);
-            padding: 4rem 0;
-        }
-
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial-item {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            display: none;
-        }
-
-        .testimonial-item.active {
-            display: block;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--gold);
-        }
-
-        .testimonial-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 1rem;
-        }
-
-        .testimonial-controls button {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--charcoal);
-            cursor: pointer;
-            transition: var(--transition);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .testimonial-controls button:hover {
-            background-color: rgba(191, 160, 107, 0.1);
-            color: var(--gold);
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.05);
-        }
-
-        .service-content {
-            padding: 1.5rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            height: 250px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay h4 {
-            color: var(--white);
-            font-size: 1.2rem;
-        }
-
-        /* Process Steps */
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .process-step {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            padding: 2rem 1.5rem;
-            background-color: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .process-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: var(--gold);
-            color: var(--white);
-            border-radius: 50%;
-            line-height: 50px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Blog Preview */
-        .blog-preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .blog-post {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .blog-post:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .blog-image {
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .blog-post:hover .blog-image img {
-            transform: scale(1.05);
-        }
-
-        .blog-content {
-            padding: 1.5rem;
-        }
-
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 0.8rem;
-        }
-
-        .blog-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
-
-        /* Contact Form */
-        .contact-container {
-            display: flex;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-details {
-            margin-top: 2rem;
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-detail i {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-right: 1rem;
-            margin-top: 5px;
-        }
-
-        .contact-form {
-            flex: 1;
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Lato', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--charcoal);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--gold);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border-radius: 50%;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--gold);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bbb;
-            font-size: 0.9rem;
-        }
-
-        /* Page Content */
-        .page-content {
-            padding-top: 120px;
-            min-height: 70vh;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .mobile-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 300px;
-                height: 100%;
-                background-color: var(--white);
-                z-index: 1001;
-                transition: var(--transition);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                overflow-y: auto;
-                padding: 2rem;
-            }
-            
-            .mobile-menu.active {
-                right: 0;
-            }
-            
-            .mobile-menu-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 2rem;
-                padding-bottom: 1rem;
-                border-bottom: 1px solid #eee;
-            }
-            
-            .mobile-menu-logo {
-                font-family: 'Playfair Display', serif;
-                font-size: 1.5rem;
-                font-weight: 700;
-                color: var(--charcoal);
-                text-decoration: none;
-            }
-            
-            .mobile-menu-logo span {
-                color: var(--gold);
-            }
-            
-            .mobile-menu-close {
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                color: var(--charcoal);
-                cursor: pointer;
-            }
-            
-            .mobile-nav ul {
-                list-style: none;
-            }
-            
-            .mobile-nav ul li {
-                margin-bottom: 1rem;
-            }
-            
-            .mobile-nav ul li a {
-                text-decoration: none;
-                color: var(--charcoal);
-                font-weight: 500;
-                font-size: 1.1rem;
-                display: block;
-                padding: 0.5rem 0;
-                border-bottom: 1px solid #eee;
-            }
-            
-            .mobile-dropdown {
-                padding-left: 1rem;
-                margin-top: 0.5rem;
-                display: none;
-            }
-            
-            .mobile-dropdown.active {
-                display: block;
-            }
-            
-            .mobile-dropdown li {
-                margin-bottom: 0.5rem;
-            }
-            
-            .mobile-dropdown li a {
-                font-size: 1rem;
-                border-bottom: none;
-                padding: 0.3rem 0;
-            }
-            
-            .mobile-dropdown-toggle {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                cursor: pointer;
-            }
-            
-            .mobile-dropdown-toggle i {
-                transition: var(--transition);
-            }
-            
-            .mobile-dropdown-toggle.active i {
-                transform: rotate(180deg);
-            }
-            
-            .mobile-menu-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 1000;
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-            }
-            
-            .mobile-menu-overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 3rem 0;
-            }
-            
-            .process-steps {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 0.8rem 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
     <!-- Header & Navigation -->
     <header>
         <div class="container">
             <div class="nav-container">
-                <a href="#home" class="logo">
+                <a href="index.html" class="logo">
                     <i class="fas fa-home logo-icon"></i>
                     Hayes <span>Barton</span> Homes
                 </a>
                 
                 <nav class="desktop-nav">
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li class="dropdown-parent">
-                            <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+                            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown">
-                                <li><a href="#custom-homes">Custom Homes</a></li>
-                                <li><a href="#home-renovations">Home Renovations</a></li>
-                                <li><a href="#luxury-additions">Luxury Additions</a></li>
-                                <li><a href="#design-consultation">Design Consultation</a></li>
-                                <li><a href="#project-management">Project Management</a></li>
+                                <li><a href="services.html#custom-homes">Custom Homes</a></li>
+                                <li><a href="services.html#home-renovations">Home Renovations</a></li>
+                                <li><a href="services.html#luxury-additions">Luxury Additions</a></li>
+                                <li><a href="services.html#design-consultation">Design Consultation</a></li>
+                                <li><a href="services.html#project-management">Project Management</a></li>
                             </ul>
                         </li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#process">Process</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="process.html">Process</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
                 
@@ -1001,75 +53,74 @@
     <div class="mobile-menu-overlay"></div>
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <a href="#home" class="mobile-menu-logo">Hayes <span>Barton</span> Homes</a>
+            <a href="index.html" class="mobile-menu-logo">Hayes <span>Barton</span> Homes</a>
             <button class="mobile-menu-close">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <nav class="mobile-nav">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li class="mobile-dropdown-parent">
                     <div class="mobile-dropdown-toggle">
-                        <a href="#services">Services</a>
+                        <a href="services.html">Services</a>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <ul class="mobile-dropdown">
-                        <li><a href="#custom-homes">Custom Homes</a></li>
-                        <li><a href="#home-renovations">Home Renovations</a></li>
-                        <li><a href="#luxury-additions">Luxury Additions</a></li>
-                        <li><a href="#design-consultation">Design Consultation</a></li>
-                        <li><a href="#project-management">Project Management</a></li>
+                        <li><a href="services.html#custom-homes">Custom Homes</a></li>
+                        <li><a href="services.html#home-renovations">Home Renovations</a></li>
+                        <li><a href="services.html#luxury-additions">Luxury Additions</a></li>
+                        <li><a href="services.html#design-consultation">Design Consultation</a></li>
+                        <li><a href="services.html#project-management">Project Management</a></li>
                     </ul>
                 </li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="process.html">Process</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </div>
 
-    <!-- Hero Section with Background Image -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="featured-badge">
             <i class="fas fa-award"></i> Featured in Architectural Digest
         </div>
-        <div class="hero-background"></div>
+        <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');"></div>
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <h1>Build Your Perfect Home in Raleigh, NC</h1>
                 <p>From niche infills with exquisite trim in downtown Raleigh to custom-built traditional homes with cool modern touches in neighboring communities, our passion is building dream homes for our clients. Get the home that fits your lifestyle and makes you feel good the minute you walk in the door.</p>
-                <a href="#contact" class="btn">Get In Touch <i class="fas fa-arrow-right"></i></a>
+                <a href="contact.html" class="btn">Get In Touch <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="page-content">
+    <!-- About Preview -->
+    <section id="about-preview" class="page-content">
         <div class="container">
             <div class="section-title">
                 <h2>About Hayes Barton Homes</h2>
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="assets/allena.jpg" alt="Allen Wells, New Home Builder">
+                    <img src="assets/allena.jpg" alt="Allen Wells, New Home Builder" data-src="assets/allena.jpg">
                 </div>
                 <div class="about-text">
                     <h3>Meet Allen Wells</h3>
                     <p>I build dream homes for people looking for niche design touches that mix the traditional with the modern. With more than 30 years experience constructing luxury homes for families and individuals in Raleigh, NC, I've discovered that what my clients value most is a home that is distinctly theirs.</p>
                     <p>At Hayes Barton Homes, we aren't just experts in building unique custom homes, we're experts in bringing your vision to life. With a civil engineering degree from North Carolina State University and more than 30 years experience building homes in the Raleigh-Durham-Chapel Hill area, I know homes inside and out.</p>
-                    <p>Every custom home builder has a favorite phase during a build. For me, it's adding interior trim to an almost-finished home. That's when I get to put the 'jewelry' on the house and create those niche touches that make your home uniquely yours.</p>
-                    <a href="#process" class="btn" style="margin-top: 1rem;">Our Process</a>
+                    <a href="about.html" class="btn" style="margin-top: 1rem;">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="page-content" style="background-color: var(--light-gray);">
+    <!-- Services Preview -->
+    <section id="services-preview" style="background-color: var(--light-gray);">
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
@@ -1078,37 +129,43 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Custom Homes">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Custom Homes" data-src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
                     </div>
                     <div class="service-content">
                         <h3>Custom Homes</h3>
                         <p>From concept to completion, we build one-of-a-kind luxury homes that reflect your personality and lifestyle, with exquisite attention to detail and craftsmanship.</p>
+                        <a href="services.html#custom-homes" class="btn" style="margin-top: 1rem; padding: 0.6rem 1.5rem; font-size: 0.9rem;">Learn More</a>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="assets/arinter.jpg" alt="Home Renovations">
+                        <img src="assets/arinter.jpg" alt="Home Renovations" data-src="assets/arinter.jpg">
                     </div>
                     <div class="service-content">
                         <h3>Home Renovations</h3>
                         <p>Transform your existing home with our expert renovation services, blending modern amenities with traditional charm while preserving architectural integrity.</p>
+                        <a href="services.html#home-renovations" class="btn" style="margin-top: 1rem; padding: 0.6rem 1.5rem; font-size: 0.9rem;">Learn More</a>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Additions">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Additions" data-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
                     </div>
                     <div class="service-content">
                         <h3>Luxury Additions</h3>
                         <p>Expand your living space with premium additions that seamlessly integrate with your existing home, from sunrooms and second stories to gourmet kitchens.</p>
+                        <a href="services.html#luxury-additions" class="btn" style="margin-top: 1rem; padding: 0.6rem 1.5rem; font-size: 0.9rem;">Learn More</a>
                     </div>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="services.html" class="btn">View All Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="page-content">
+    <!-- Gallery Preview -->
+    <section id="gallery-preview">
         <div class="container">
             <div class="section-title">
                 <h2>Recent New Home Builds</h2>
@@ -1116,63 +173,26 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Traditional Home">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Traditional Home" data-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
                     <div class="gallery-overlay">
                         <h4>Modern Traditional Home</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Kitchen">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Kitchen" data-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
                     <div class="gallery-overlay">
                         <h4>Luxury Kitchen Design</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Custom Exterior">
+                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Custom Exterior" data-src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
                     <div class="gallery-overlay">
                         <h4>Custom Home Exterior</h4>
                     </div>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="#gallery" class="btn">View The Gallery</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="page-content" style="background-color: var(--beige);">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Building Process</h2>
-                <p>A streamlined approach to creating your dream home</p>
-            </div>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Initial Consultation</h3>
-                    <p>We meet to understand your vision, lifestyle needs, budget, and timeline for your custom home project.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Design & Planning</h3>
-                    <p>Our architect creates custom designs that blend your vision with structural integrity and aesthetic appeal.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Material Selection</h3>
-                    <p>You choose from premium materials, finishes, and fixtures to personalize every aspect of your home.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Construction</h3>
-                    <p>Our experienced team builds your home with precision craftsmanship and meticulous attention to detail.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h3>Final Walkthrough</h3>
-                    <p>We conduct a comprehensive inspection together to ensure every detail meets our exacting standards.</p>
-                </div>
+                <a href="gallery.html" class="btn">View The Gallery</a>
             </div>
         </div>
     </section>
@@ -1201,117 +221,12 @@
         </div>
     </section>
 
-    <!-- Blog Preview -->
-    <section id="blog" class="page-content">
+    <!-- CTA Section -->
+    <section style="background-color: var(--charcoal); color: var(--white); text-align: center;">
         <div class="container">
-            <div class="section-title">
-                <h2>From Our Blog</h2>
-                <p>Insights on custom home building, design trends, and the Raleigh area</p>
-            </div>
-            <div class="blog-preview">
-                <div class="blog-post">
-                    <div class="blog-image">
-                        <img src="assets/adven.jpg" alt="Modern Traditional Design">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> May 15, 2025</span>
-                            <span><i class="far fa-folder"></i> Design Trends</span>
-                        </div>
-                        <h3>Blending Modern & Traditional Elements in Custom Homes</h3>
-                        <p>How to create a timeless home that incorporates modern amenities while preserving traditional charm and character.</p>
-                        <a href="#blog" style="color: var(--gold); font-weight: 600; text-decoration: none;">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Raleigh Real Estate">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> April 22, 2025</span>
-                            <span><i class="far fa-folder"></i> Raleigh Area</span>
-                        </div>
-                        <h3>Why Raleigh is the Perfect Place for Your Custom Home</h3>
-                        <p>Exploring the unique neighborhoods and communities in the Raleigh-Durham area that offer ideal settings for custom homes.</p>
-                        <a href="#blog" style="color: var(--gold); font-weight: 600; text-decoration: none;">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#blog" class="btn">View All Posts</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="page-content" style="background-color: var(--light-gray);">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Let's discuss your dream home project</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>The custom home builder team at Hayes Barton Homes will make the home you envision a reality. Contact us to start the conversation about your dream home.</p>
-                    <div class="contact-details">
-                        <div class="contact-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Raleigh, North Carolina</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>(919) 555-0123</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@hayesbartonhomes.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service</option>
-                                <option value="custom-homes">Custom Homes</option>
-                                <option value="renovations">Home Renovations</option>
-                                <option value="additions">Luxury Additions</option>
-                                <option value="consultation">Design Consultation</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                    </form>
-                </div>
-            </div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Ready to Build Your Dream Home?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">Contact us today for a complimentary consultation and let's discuss your vision.</p>
+            <a href="contact.html" class="btn" style="background-color: var(--gold);">Start Your Project <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -1332,467 +247,39 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#process">Process</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="process.html">Process</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#custom-homes">Custom Homes</a></li>
-                        <li><a href="#home-renovations">Home Renovations</a></li>
-                        <li><a href="#luxury-additions">Luxury Additions</a></li>
-                        <li><a href="#design-consultation">Design Consultation</a></li>
-                        <li><a href="#project-management">Project Management</a></li>
+                        <li><a href="services.html#custom-homes">Custom Homes</a></li>
+                        <li><a href="services.html#home-renovations">Home Renovations</a></li>
+                        <li><a href="services.html#luxury-additions">Luxury Additions</a></li>
+                        <li><a href="services.html#design-consultation">Design Consultation</a></li>
+                        <li><a href="services.html#project-management">Project Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Raleigh, North Carolina</li>
+                        <li><i class="fas fa-phone"></i> (919) 555-0123</li>
+                        <li><i class="fas fa-envelope"></i> info@hayesbartonhomes.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Hayes Barton Homes Inc. | Privacy Policy | Terms & Conditions • Website Design by Crestline Web Studio.</p>
+                <p>&copy; 2026 Hayes Barton Homes Inc. | <a href="#" style="color: #bbb;">Privacy Policy</a> | <a href="#" style="color: #bbb;">Terms & Conditions</a> • Website Design by Crestline Web Studio.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.8rem;">Photos courtesy of Unsplash</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenuClose = document.querySelector('.mobile-menu-close');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        mobileMenuOverlay.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Mobile Dropdown Toggle
-        mobileDropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const dropdown = toggle.nextElementSibling;
-                toggle.classList.toggle('active');
-                dropdown.classList.toggle('active');
-            });
-        });
-
-        // Testimonial Slider
-        const testimonialItems = document.querySelectorAll('.testimonial-item');
-        const testimonialPrev = document.querySelector('.testimonial-prev');
-        const testimonialNext = document.querySelector('.testimonial-next');
-        let currentTestimonial = 0;
-
-        function showTestimonial(index) {
-            testimonialItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            testimonialItems[index].classList.add('active');
-            currentTestimonial = index;
-        }
-
-        testimonialNext.addEventListener('click', () => {
-            let nextIndex = currentTestimonial + 1;
-            if (nextIndex >= testimonialItems.length) {
-                nextIndex = 0;
-            }
-            showTestimonial(nextIndex);
-        });
-
-        testimonialPrev.addEventListener('click', () => {
-            let prevIndex = currentTestimonial - 1;
-            if (prevIndex < 0) {
-                prevIndex = testimonialItems.length - 1;
-            }
-            showTestimonial(prevIndex);
-        });
-
-        // Auto rotate testimonials
-        let testimonialInterval = setInterval(() => {
-            let nextIndex = currentTestimonial + 1;
-            if (nextIndex >= testimonialItems.length) {
-                nextIndex = 0;
-            }
-            showTestimonial(nextIndex);
-        }, 5000);
-
-        // Pause auto rotation on hover
-        const testimonialSlider = document.querySelector('.testimonial-slider');
-        testimonialSlider.addEventListener('mouseenter', () => {
-            clearInterval(testimonialInterval);
-        });
-        
-        testimonialSlider.addEventListener('mouseleave', () => {
-            testimonialInterval = setInterval(() => {
-                let nextIndex = currentTestimonial + 1;
-                if (nextIndex >= testimonialItems.length) {
-                    nextIndex = 0;
-                }
-                showTestimonial(nextIndex);
-            }, 5000);
-        });
-
-        // Header scroll effect
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                // Close mobile menu if open
-                if (mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                    mobileMenuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Contact form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // In a real application, you would send the form data to a server
-            // For this example, we'll just show an alert
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            
-            alert(`Thank you ${name}! Your message has been sent. We'll get back to you soon.`);
-            this.reset();
-        });
-
-        // Page navigation highlighting
-        const sections = document.querySelectorAll('section.page-content, .hero');
-        const navLinks = document.querySelectorAll('nav ul li a, .mobile-nav ul li a');
-
-        function highlightNavLink() {
-            let scrollPos = window.scrollY + 150;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const sectionId = section.getAttribute('id') || 'home';
-                
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }
-
-        window.addEventListener('scroll', highlightNavLink);
-        window.addEventListener('load', highlightNavLink);
-
-        // ==============================================
-// MOBILE MENU FIXES
-// ==============================================
-
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Fix mobile menu dropdown functionality
-    fixMobileMenu();
-    
-    // Close mobile menu when clicking outside
-    setupOutsideClickHandler();
-    
-    // Close mobile menu when clicking on a link
-    setupMobileLinkHandlers();
-});
-
-// Main function to fix mobile menu
-function fixMobileMenu() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenuClose = document.querySelector('.mobile-menu-close');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-    
-    if (!mobileMenuBtn || !mobileMenu) {
-        console.error('Mobile menu elements not found');
-        return;
-    }
-    
-    // Open mobile menu
-    mobileMenuBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileMenu.classList.add('active');
-        mobileMenuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Add aria attributes for accessibility
-        mobileMenu.setAttribute('aria-hidden', 'false');
-        mobileMenuBtn.setAttribute('aria-expanded', 'true');
-    });
-    
-    // Close mobile menu with close button
-    if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', function() {
-            closeMobileMenu();
-        });
-    }
-    
-    // Close mobile menu with overlay
-    if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', function() {
-            closeMobileMenu();
-        });
-    }
-    
-    // Mobile dropdown toggle functionality
-    mobileDropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const dropdown = this.nextElementSibling;
-            const icon = this.querySelector('i');
-            
-            // Toggle active class on dropdown
-            dropdown.classList.toggle('active');
-            
-            // Toggle active class on toggle element
-            this.classList.toggle('active');
-            
-            // Rotate icon
-            if (icon) {
-                icon.style.transform = dropdown.classList.contains('active') 
-                    ? 'rotate(180deg)' 
-                    : 'rotate(0deg)';
-            }
-        });
-        
-        // Prevent parent link navigation when clicking dropdown toggle
-        const link = toggle.querySelector('a');
-        if (link) {
-            link.addEventListener('click', function(e) {
-                // Only prevent default if dropdown is not active (to allow closing)
-                if (!toggle.classList.contains('active')) {
-                    e.preventDefault();
-                }
-            });
-        }
-    });
-    
-    // Handle Escape key to close mobile menu
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            closeMobileMenu();
-        }
-    });
-}
-
-// Function to close mobile menu
-function closeMobileMenu() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (mobileMenu) {
-        mobileMenu.classList.remove('active');
-    }
-    
-    if (mobileMenuOverlay) {
-        mobileMenuOverlay.classList.remove('active');
-    }
-    
-    document.body.style.overflow = '';
-    
-    // Close all dropdowns inside mobile menu
-    const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-    mobileDropdowns.forEach(dropdown => {
-        dropdown.classList.remove('active');
-    });
-    
-    // Reset dropdown toggle icons
-    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-    mobileDropdownToggles.forEach(toggle => {
-        toggle.classList.remove('active');
-        const icon = toggle.querySelector('i');
-        if (icon) {
-            icon.style.transform = 'rotate(0deg)';
-        }
-    });
-    
-    // Update aria attributes for accessibility
-    if (mobileMenu) {
-        mobileMenu.setAttribute('aria-hidden', 'true');
-    }
-    if (mobileMenuBtn) {
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    }
-}
-
-// Close mobile menu when clicking outside
-function setupOutsideClickHandler() {
-    document.addEventListener('click', function(e) {
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        
-        if (!mobileMenu || !mobileMenu.classList.contains('active')) return;
-        
-        // Check if click is outside mobile menu and not on the menu button
-        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuBtn) {
-            closeMobileMenu();
-        }
-    });
-}
-
-// Close mobile menu when clicking on a link (except dropdown toggles)
-function setupMobileLinkHandlers() {
-    const mobileLinks = document.querySelectorAll('.mobile-nav a:not(.mobile-dropdown-toggle a)');
-    
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Close mobile menu after a short delay for smooth transition
-            setTimeout(() => {
-                closeMobileMenu();
-            }, 300);
-        });
-    });
-}
-
-// ==============================================
-// ENHANCED DROPDOWN BEHAVIOR FOR BOTH DESKTOP & MOBILE
-// ==============================================
-
-// Improve desktop dropdown behavior
-function enhanceDesktopDropdowns() {
-    const dropdownParents = document.querySelectorAll('.dropdown-parent');
-    
-    dropdownParents.forEach(parent => {
-        const dropdown = parent.querySelector('.dropdown');
-        const link = parent.querySelector('a');
-        
-        if (!dropdown || !link) return;
-        
-        // Add hover behavior for desktop
-        parent.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 992) { // Desktop breakpoint
-                dropdown.style.opacity = '1';
-                dropdown.style.visibility = 'visible';
-                dropdown.style.transform = 'translateY(0)';
-            }
-        });
-        
-        parent.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 992) {
-                dropdown.style.opacity = '0';
-                dropdown.style.visibility = 'hidden';
-                dropdown.style.transform = 'translateY(15px)';
-            }
-        });
-        
-        // Add click behavior for touch devices
-        if (window.innerWidth <= 992) {
-            let touchTimer;
-            
-            link.addEventListener('touchstart', function(e) {
-                touchTimer = setTimeout(() => {
-                    e.preventDefault();
-                    dropdown.style.opacity = '1';
-                    dropdown.style.visibility = 'visible';
-                    dropdown.style.transform = 'translateY(0)';
-                }, 300); // Long press to open dropdown on mobile
-            });
-            
-            link.addEventListener('touchend', function() {
-                clearTimeout(touchTimer);
-            });
-            
-            // Close dropdown when tapping elsewhere
-            document.addEventListener('touchstart', function(e) {
-                if (!parent.contains(e.target)) {
-                    dropdown.style.opacity = '0';
-                    dropdown.style.visibility = 'hidden';
-                    dropdown.style.transform = 'translateY(15px)';
-                }
-            });
-        }
-    });
-}
-
-// Initialize enhanced dropdowns
-document.addEventListener('DOMContentLoaded', enhanceDesktopDropdowns);
-
-// Update dropdown behavior on window resize
-window.addEventListener('resize', enhanceDesktopDropdowns);
-
-// ==============================================
-// SMOOTH SCROLLING FIX FOR MOBILE MENU
-// ==============================================
-
-// Update smooth scrolling to work with mobile menu
-function updateSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#' || !targetId) return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (!targetElement) return;
-            
-            // Close mobile menu if open
-            const mobileMenu = document.querySelector('.mobile-menu');
-            if (mobileMenu && mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            }
-            
-            // Calculate header height for offset
-            const headerHeight = document.querySelector('header').offsetHeight || 100;
-            
-            // Smooth scroll to target
-            window.scrollTo({
-                top: targetElement.offsetTop - headerHeight,
-                behavior: 'smooth'
-            });
-            
-            e.preventDefault();
-        });
-    });
-}
-
-// Initialize smooth scrolling
-document.addEventListener('DOMContentLoaded', updateSmoothScrolling);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
